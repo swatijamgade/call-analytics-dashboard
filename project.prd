@@ -1,0 +1,414 @@
+# Call Analytics Dashboard
+
+A modern **SaaS-style analytics dashboard** built to analyze **Call Data Records (CDR)** from a telecommunication system. The dashboard fetches call data from an API, processes the raw records, and visualizes key insights using interactive charts, KPI cards, and a recent call logs table.
+
+This project was built as part of the **Software Development Internship – Week 2 Assignment 2 at London Success Academy**.
+
+---
+
+# Problem Statement
+
+Telecommunication platforms generate **Call Data Records (CDR)** for every phone call made through the system. These records contain important information such as caller details, call duration, call status, timestamps, and call cost.
+
+Organizations use analytics dashboards to monitor these records in order to:
+
+* Track call activity
+* Analyze customer engagement
+* Monitor call success rates
+* Analyze call costs
+* Identify calling patterns
+
+This project builds a **Call Analytics Dashboard** that consumes CDR API data and transforms it into meaningful visual analytics.
+
+---
+
+# Dashboard Features
+
+## 1. KPI Summary Cards
+
+Displays key performance metrics using **shadcn Card components**.
+
+Metrics calculated:
+
+* **Total Calls**
+* **Total Call Cost**
+* **Average Call Duration**
+* **Total Successful Calls**
+* **Total Failed Calls**
+
+Example:
+
+```
+Total Calls: 250
+Average Duration: 48s
+Total Cost: $4321
+Successful Calls: 210
+Failed Calls: 40
+```
+
+---
+
+## 2. Call Duration Analytics
+
+Provides insights into call durations.
+
+Metrics include:
+
+* Longest Call
+* Shortest Call
+* Average Call Duration
+
+Visualization:
+
+* **Bar Chart**
+
+---
+
+## 3. Call Cost Analytics
+
+Displays cost-related insights.
+
+Examples:
+
+* Total Cost by City
+* Average Cost per Call
+
+Visualization:
+
+* **Bar Chart**
+* **Line Chart**
+
+---
+
+## 4. Call Activity Timeline
+
+Analyzes call activity based on timestamps.
+
+Metrics include:
+
+* Calls per Hour
+* Calls per Day
+
+Visualization:
+
+* **Line Chart**
+
+---
+
+## 5. Calls by City
+
+Analyzes which cities generate the highest number of calls.
+
+Visualization:
+
+* **Pie Chart**
+* **Bar Chart**
+
+Example:
+
+```
+City vs Number of Calls
+```
+
+---
+
+## 6. Recent Call Logs Table
+
+Displays recent call records in a structured table using **shadcn Table component**.
+
+Table columns:
+
+| Column          | Description                |
+| --------------- | -------------------------- |
+| Caller Name     | Person initiating the call |
+| Caller Number   | Caller phone number        |
+| Receiver Number | Destination phone          |
+| City            | Call origin city           |
+| Duration        | Call duration              |
+| Cost            | Call cost                  |
+| Start Time      | Call start timestamp       |
+
+Example Row:
+
+```
+Felipe Conroy | 999.986.4609 | 1-796-718-3810 | Kayleyboro | 18s | $140.38
+```
+
+---
+
+# Technology Stack
+
+This dashboard is built using modern frontend technologies:
+
+* **React**
+* **Vite**
+* **TailwindCSS**
+* **shadcn/ui**
+* **Recharts (for charts)**
+
+---
+
+# API Data Source
+
+The dashboard fetches data from the following API endpoint:
+
+```
+https://69b30b45e224ec066bdb55a0.mockapi.io/api/v1/cdr
+```
+
+Example API Response:
+
+```json
+{
+  "callerName": "Felipe Conroy",
+  "callerNumber": "999.986.4609",
+  "receiverNumber": "1-796-718-3810 x621",
+  "city": "Kayleyboro",
+  "callDirection": false,
+  "callStatus": false,
+  "callDuration": 18,
+  "callCost": "140.38",
+  "callStartTime": "2026-03-12T00:43:40.022Z",
+  "callEndTime": "2026-03-12T18:30:18.577Z",
+  "id": "1"
+}
+```
+
+---
+
+# Data Fields Explanation
+
+| Field          | Description                                              |
+| -------------- | -------------------------------------------------------- |
+| callerName     | Name of the person making the call                       |
+| callerNumber   | Phone number of caller                                   |
+| receiverNumber | Phone number of receiver                                 |
+| city           | City from which call originated                          |
+| callDirection  | Indicates inbound (true) or outbound (false) call        |
+| callStatus     | Indicates successful (true) or unsuccessful (false) call |
+| callDuration   | Call duration in seconds                                 |
+| callCost       | Cost of the call                                         |
+| callStartTime  | Start timestamp of the call                              |
+| callEndTime    | End timestamp of the call                                |
+| id             | Unique call record ID                                    |
+
+---
+
+# Analytics Calculations
+
+The dashboard processes raw API data and calculates:
+
+### Total Calls
+
+```
+Total Calls = Total number of call records
+```
+
+### Total Call Cost
+
+```
+Total Cost = Sum of callCost for all calls
+```
+
+### Average Call Duration
+
+```
+Average Duration = Total call duration / Total calls
+```
+
+### Successful Calls
+
+```
+callStatus === true
+```
+
+### Failed Calls
+
+```
+callStatus === false
+```
+
+### Calls by City
+
+Grouped count of calls by `city`.
+
+### Calls per Day / Hour
+
+Grouped count based on `callStartTime`.
+
+---
+
+# Project Structure
+
+```
+call-analytics-dashboard
+│
+├── public
+│
+├── src
+│   ├── components
+│   │   ├── dashboard
+│   │   ├── charts
+│   │   ├── table
+│   │   └── ui
+│   │
+│   ├── pages
+│   ├── services
+│   ├── utils
+│   ├── lib
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── package.json
+├── tailwind.config.js
+├── vite.config.js
+└── README.md
+```
+
+---
+
+# Installation & Setup
+
+## Clone the repository
+
+```
+git clone https://github.com/your-username/call-analytics-dashboard.git
+```
+
+```
+cd call-analytics-dashboard
+```
+
+---
+
+## Install dependencies
+
+```
+npm install
+```
+
+---
+
+## Run development server
+
+```
+npm run dev
+```
+
+---
+
+## Build for production
+
+```
+npm run build
+```
+
+---
+
+# Screenshots
+
+Add screenshots of your dashboard here.
+
+### Dashboard Overview
+
+```
+/screenshots/dashboard.png
+```
+
+### KPI Cards
+
+```
+/screenshots/kpi-cards.png
+```
+
+### Charts
+
+```
+/screenshots/charts.png
+```
+
+### Call Logs Table
+
+```
+/screenshots/table.png
+```
+
+---
+
+# Live Deployment
+
+The project is deployed using **Vercel**.
+
+Live URL:
+
+```
+https://your-vercel-app-link.vercel.app
+```
+
+---
+
+# GitHub Repository
+
+```
+https://github.com/your-username/call-analytics-dashboard
+```
+
+---
+
+# UI and Design Approach
+
+This dashboard follows a **clean SaaS product design** pattern with:
+
+* responsive layout
+* reusable card components
+* modular chart components
+* clean Tailwind styling
+* modern UI using shadcn
+* readable analytics visualization
+
+The primary goal is to convert **raw call records into meaningful visual insights**.
+
+---
+
+# Learning Outcomes
+
+Through this project, the following skills were developed:
+
+* Consuming APIs in React
+* Transforming raw JSON data into analytics
+* Creating reusable UI components
+* Building data dashboards
+* Implementing charts using Recharts
+* Designing responsive UI with TailwindCSS
+* Deploying applications using Vercel
+
+---
+
+# Future Improvements
+
+Possible enhancements include:
+
+* Filtering calls by city
+* Date range filtering
+* Search functionality for call logs
+* Pagination for large datasets
+* Dark mode support
+* Export analytics as CSV or PDF
+* Advanced telecom analytics
+
+---
+
+# Author
+
+**Your Name**
+
+Software Development Internship
+Week 2 – Assignment 2
+London Success Academy
+
+---
+
+# License
+
+This project is created for **educational and internship assignment purposes**.
