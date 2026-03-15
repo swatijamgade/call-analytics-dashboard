@@ -26,8 +26,8 @@ export function calculateKpis(records) {
     0,
   );
   const totalCallCost = rows.reduce((sum, row) => sum + toNumber(row.callCost), 0);
-  const successfulCalls = rows.filter((row) => row.callStatus === true).length;
-  const failedCalls = rows.filter((row) => row.callStatus === false).length;
+  const failedCalls = rows.filter((row) => toNumber(row.callDuration) === 0).length;
+  const successfulCalls = totalCalls - failedCalls;
 
   return {
     totalCalls,

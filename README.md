@@ -1,16 +1,96 @@
-# React + Vite
+# Call Analytics Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite analytics dashboard that consumes telecom CDR data and visualizes key call metrics in a SaaS-style interface.
 
-Currently, two official plugins are available:
+## Project Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This dashboard fetches Call Data Records (CDR) from the provided API and transforms the raw records into actionable analytics for:
 
-## React Compiler
+- call activity monitoring
+- customer engagement tracking
+- call success/failure monitoring
+- cost analysis
+- city-level call pattern analysis
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technology Stack
 
-## Expanding the ESLint configuration
+- React (Vite)
+- TailwindCSS
+- shadcn/ui
+- Recharts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## API
+
+Default data source:
+
+`https://69b30b45e224ec066bdb55a0.mockapi.io/api/v1/cdr`
+
+You can override the API URL with an environment variable:
+
+`VITE_CDR_API_URL`
+
+## Implemented Features
+
+1. KPI Summary Cards
+- Total Calls
+- Total Call Cost
+- Average Call Duration
+- Total Successful Calls
+- Total Failed Calls
+
+2. Call Duration Analytics
+- Longest Call
+- Shortest Call
+- Average Duration
+- Bar chart
+
+3. Call Cost Analytics
+- Total cost by city
+- Average cost per call
+- Bar + line charts
+
+4. Call Activity Timeline
+- Calls per hour
+- Calls per day
+- Line charts
+
+5. Calls by City
+- City vs number of calls
+- Bar + pie charts
+
+6. Recent Call Logs Table
+- Caller Name
+- Caller Number
+- Receiver Number
+- City
+- Duration
+- Cost
+- Start Time
+
+## Local Setup
+
+```bash
+npm install
+cp .env.example .env
+# edit .env and set VITE_CDR_API_URL if needed
+npm run dev
+```
+
+Open: `http://localhost:3000`
+
+Note: after changing `.env`, restart the dev server.
+
+## Build and Lint
+
+```bash
+npm run lint
+npm run build
+```
+
+## Screenshots
+
+Add screenshots in this section before submission.
+
+## Deployment Link (Vercel)
+
+Add deployed URL here before submission.
