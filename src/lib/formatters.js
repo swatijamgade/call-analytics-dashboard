@@ -1,12 +1,12 @@
-const usd = new Intl.NumberFormat("en-US", {
+const gbp = new Intl.NumberFormat("en-GB", {
   style: "currency",
-  currency: "USD",
+  currency: "GBP",
   maximumFractionDigits: 2,
 });
 
 export function formatCurrency(value) {
   const amount = Number(value);
-  return usd.format(Number.isFinite(amount) ? amount : 0);
+  return gbp.format(Number.isFinite(amount) ? amount : 0);
 }
 
 export function formatDuration(seconds) {
