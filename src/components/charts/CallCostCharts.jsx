@@ -37,7 +37,7 @@ export default function CallCostCharts({ data }) {
     <Card className="border-border bg-card shadow-sm dark:border-border/70 dark:bg-card/90 dark:shadow-[0_14px_34px_rgba(1,8,26,0.42)]">
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between gap-3">
-          <CardTitle className="text-sm font-semibold text-foreground">
+          <CardTitle className="text-base md:text-lg font-semibold text-foreground">
             Call Cost Analysis
           </CardTitle>
           <p className="text-xs font-medium text-muted-foreground">Avg Cost / Call</p>

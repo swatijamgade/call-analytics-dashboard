@@ -80,7 +80,7 @@ export default function SideRail({
     <aside className="hidden lg:flex lg:flex-col lg:gap-4">
       <Card className="border-border/70 bg-card/90 shadow-[0_14px_34px_rgba(1,8,26,0.42)] backdrop-blur">
         <CardHeader className="pb-2">
-          <CardTitle className="flex items-center gap-2 text-base text-foreground">
+          <CardTitle className="flex items-center gap-2 text-lg text-foreground">
             <span className="grid size-8 place-content-center rounded-lg bg-primary text-sm font-semibold text-white">
               CDR
             </span>
@@ -113,7 +113,7 @@ export default function SideRail({
           <div className="inline-flex size-9 items-center justify-center rounded-lg bg-muted text-muted-foreground">
             <ListTodo className="size-5" />
           </div>
-          <p className="text-sm font-semibold text-foreground">Task Manager</p>
+          <p className="text-base font-semibold text-foreground">Task Manager</p>
           <p className="text-xs text-muted-foreground/80">
             {taskCount > 0
               ? `${taskCount} pending task${taskCount > 1 ? "s" : ""}.`

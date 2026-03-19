@@ -4,6 +4,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { cn } from "@/lib/utils";
 import { Pie, PieChart } from "recharts";
 
 const PIE_COLORS = [
@@ -16,7 +17,7 @@ const PIE_COLORS = [
 ];
 const MAX_CITY_SEGMENTS = 5;
 
-export default function CallsByCityPieChart({ data }) {
+export default function CallsByCityPieChart({ data, className }) {
   const sortedRows = Array.isArray(data)
     ? [...data].sort((a, b) => b.calls - a.calls || a.city.localeCompare(b.city))
     : [];
@@ -46,9 +47,14 @@ export default function CallsByCityPieChart({ data }) {
   };
 
   return (
-    <Card className="border-border bg-card shadow-sm dark:border-border/70 dark:bg-card/90 dark:shadow-[0_14px_34px_rgba(1,8,26,0.42)]">
+    <Card
+      className={cn(
+        "border-border bg-card shadow-sm dark:border-border/70 dark:bg-card/90 dark:shadow-[0_14px_34px_rgba(1,8,26,0.42)]",
+        className,
+      )}
+    >
       <CardHeader className="pb-2">
-        <CardTitle className="text-sm font-semibold text-foreground">
+        <CardTitle className="text-base md:text-lg font-semibold text-foreground">
           Calls by City
         </CardTitle>
       </CardHeader>

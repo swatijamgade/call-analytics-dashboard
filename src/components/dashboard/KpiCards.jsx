@@ -58,7 +58,7 @@ export default function KpiCards({ kpis }) {
                 >
                   <Icon className="size-3.5" />
                 </span>
-                <CardTitle className="text-xs font-semibold text-muted-foreground">
+                <CardTitle className="text-sm font-semibold text-muted-foreground">
                   {item.label}
                 </CardTitle>
               </div>

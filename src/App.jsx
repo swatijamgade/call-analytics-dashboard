@@ -226,7 +226,9 @@ export default function App() {
         <header className="overflow-hidden rounded-xl border border-border bg-card shadow-sm dark:border-border/70 dark:bg-card/90 dark:shadow-[0_18px_40px_rgba(1,8,26,0.45)]">
           <div className="grid items-center gap-2 bg-[#25456b] px-3 py-2 text-white sm:grid-cols-[1fr_auto_1fr] dark:bg-[#10284f]">
             <p className="text-xs font-medium text-white/90">Swati Jamgade</p>
-            <p className="text-sm font-semibold text-white/95">Call Analytics Dashboard</p>
+            <p className="text-base sm:text-lg font-semibold text-white/95">
+              Call Analytics Dashboard
+            </p>
             <div className="flex items-center justify-end gap-2">
               <div className="hidden items-center gap-1 rounded-md border border-white/30 bg-white/10 px-2 py-1 text-xs font-medium text-white/90 sm:flex">
                 <span>Dataset Size:</span>
@@ -375,7 +377,7 @@ export default function App() {
           </div>
 
           <div className="grid gap-3 xl:grid-cols-12">
-            <div className="xl:col-span-3">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:col-span-9 xl:grid-cols-1">
               <MiniMetric
                 label="Longest Call"
                 value={formatDuration(durationStats.longestCallDuration)}
@@ -383,8 +385,6 @@ export default function App() {
                 icon={<PhoneCall className="size-4.5" />}
                 tone="#3f8cf6"
               />
-            </div>
-            <div className="xl:col-span-3">
               <MiniMetric
                 label="Shortest Call"
                 value={formatDuration(durationStats.shortestCallDuration)}
@@ -392,8 +392,6 @@ export default function App() {
                 icon={<TimerReset className="size-4.5" />}
                 tone="#2cbf75"
               />
-            </div>
-            <div className="xl:col-span-3">
               <MiniMetric
                 label="Daily Activity"
                 value={`${(latestDay?.calls ?? 0).toLocaleString("en-US")}`}
@@ -403,7 +401,7 @@ export default function App() {
               />
             </div>
             <div className="xl:col-span-3">
-              <CallsByCityPieChart data={callsByCity} />
+              <CallsByCityPieChart data={callsByCity} className="xl:h-full" />
             </div>
           </div>
 
