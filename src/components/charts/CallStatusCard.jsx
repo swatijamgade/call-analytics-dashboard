@@ -36,7 +36,7 @@ export default function CallStatusCard({ kpis }) {
   return (
     <Card className="border-border/70 bg-card/90 shadow-[0_14px_34px_rgba(1,8,26,0.42)] backdrop-blur">
       <CardHeader>
-        <CardTitle className="text-base font-semibold text-foreground">
+        <CardTitle className="text-lg font-semibold text-foreground">
           Call Status
         </CardTitle>
       </CardHeader>

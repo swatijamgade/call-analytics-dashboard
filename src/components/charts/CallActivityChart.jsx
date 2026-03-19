@@ -21,7 +21,7 @@ export default function CallActivityChart({ hourlyData, dailyData }) {
   return (
     <Card className="border-border bg-card shadow-sm dark:border-border/70 dark:bg-card/90 dark:shadow-[0_14px_34px_rgba(1,8,26,0.42)]">
       <CardHeader className="pb-2">
-        <CardTitle className="text-sm font-semibold text-foreground">
+        <CardTitle className="text-base md:text-lg font-semibold text-foreground">
           Call Activity Timeline
         </CardTitle>
       </CardHeader>

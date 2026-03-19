@@ -136,6 +136,7 @@
     }
   html {
     @apply font-sans;
+    font-size: 18px;
     color-scheme: light;
     background-color: var(--background);
     }
@@ -145,4 +146,10 @@
   #root {
     min-height: 100vh;
     }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 19px;
+  }
 }
